@@ -1,0 +1,25 @@
+package com.example.springboot.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.springboot.entity.StudentEntity;
+import com.example.springboot.repository.StudentRepository;
+
+@Service
+public class StudentService {
+	
+	@Autowired
+	private StudentRepository studentrepo;
+      
+	List<StudentEntity> list = new ArrayList<>();
+	
+	public StudentEntity addStudent(StudentEntity students) {
+		list.add(students);
+		studentrepo.save(students);
+		return students;
+	}
+}

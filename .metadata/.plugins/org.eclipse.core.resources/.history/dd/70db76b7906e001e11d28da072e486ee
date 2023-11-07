@@ -1,0 +1,19 @@
+package com.example.springboot.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.example.springboot.entity.StudentEntity;
+
+@Service
+public class StudentService {
+      
+	List<StudentEntity> list = new ArrayList<>();
+	
+	public StudentEntity addStudent(StudentEntity students) {
+		list.add(students);
+		return students;
+	}
+}
