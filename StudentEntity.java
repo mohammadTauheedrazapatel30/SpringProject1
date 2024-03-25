@@ -32,10 +32,10 @@ public class StudentEntity {
 	private String state;
 	
 	@Column(name="email")
-	private String emailId;
+	private String email;
 	
 	public StudentEntity(long id, String name, String address, String contact, String district, String state,
-			String emailId) {
+			String email) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -43,7 +43,7 @@ public class StudentEntity {
 		this.contact = contact;
 		this.district = district;
 		this.state = state;
-		this.emailId = emailId;
+		this.email = email;
 	}
 
 	public StudentEntity() {
@@ -98,17 +98,17 @@ public class StudentEntity {
 	}
 
 	public String getEmailId() {
-		return emailId;
+		return email;
 	}
 
 	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+		this.email = emailId;
 	}
 
 	@Override
 	public String toString() {
 		return "StudentEntity [id=" + id + ", name=" + name + ", address=" + address + ", contact=" + contact
-				+ ", district=" + district + ", state=" + state + ", emailId=" + emailId + "]";
+				+ ", district=" + district + ", state=" + state + ", emailId=" + email + "]";
 	}
 	
 }

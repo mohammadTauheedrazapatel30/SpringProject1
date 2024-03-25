@@ -1,7 +1,11 @@
 package com.example.springboot.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,4 +49,18 @@ public class StudentController {
 		this.studentService.addStudents(students);
 		return students;
 	}
+	
+	// localhost:8080/list
+	@GetMapping("/list")
+    public List<StudentEntity> getAllStudents()
+    {
+        return studentService.findAll();
+    }
+	
+	@GetMapping("/list/{id}")
+	public Optional<StudentEntity> getStudentById(@PathVariable(value = "id") long id)
+	    {
+	        return studentService.findById(id);
+	    }
+
 }
