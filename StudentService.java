@@ -33,4 +33,26 @@ public class StudentService {
 	public Optional<StudentEntity> findById(long id) {
 		return studentrepo.findById(id);
 	}
+
+    // As our method is void , we are not returning anything here and thus directing it to studentrepository
+	public void deleteStudent(StudentEntity students) {
+		// TODO Auto-generated method stub
+		this.studentrepo.delete(students);	
+	}
+
+    public StudentEntity updateStudent(Long id, StudentEntity studentEntity) {
+    	Optional<StudentEntity> existingStudent = studentrepo.findById(id);
+    	if(existingStudent.isPresent()) {
+    	   StudentEntity students = existingStudent.get();
+    	   students.setAddress(studentEntity.getAddress());
+    	   students.setContact(studentEntity.getContact());
+    	   students.setDistrict(studentEntity.getDistrict());
+    	   students.setEmail(studentEntity.getEmail());
+    	   students.setName(studentEntity.getName());
+    	   students.setState(studentEntity.getState());
+    	   return studentrepo.save(students);
+    	}else{
+    		throw new RuntimeException();
+    	}
+    }
 }
