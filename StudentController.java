@@ -80,10 +80,19 @@ public class StudentController {
 		}
 		return ResponseEntity.notFound().build();
 	}
- 
-//	@PutMapping("update/{id}")
-//	public ResponseEntity<StudentEntity> updateStudent(@PathVariable(value="id") long id, @RequestBody StudentEntity students){
-//        StudentEntity updateStudent = studentService.updateStudent(id,students);
-//		  return ResponseEntity.ok(updateStudent);
-//	}
+    
+	//localhost:8080/update/{id} - api
+//	@RequestMapping(method= RequestMethod.PUT, value="update/{id}")
+	@PutMapping("update/{id}")
+	public ResponseEntity<StudentEntity> updateStudent(@PathVariable(value="id") long id, @RequestBody StudentEntity students){
+        StudentEntity updateStudent = studentService.updateStudent(id,students);
+		  return ResponseEntity.ok(updateStudent);
+	}
+	
+	@GetMapping("/problem")
+	public int problem() {
+		int j=4;
+		int k1 = j++-++j;
+		return k1;
+	}
 }
